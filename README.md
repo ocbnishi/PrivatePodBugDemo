@@ -30,18 +30,18 @@ PrivatePodBugDemo (App)
 ```
 
 ## Podfiles:
-```
+```ruby
 # ./Podfile
 platform :ios, '13.0'
 
 target 'PrivatePodBugDemo' do
   use_frameworks!
 
-  pod 'ChildPod', :path => 'DevPods/ChildPod' # This is the problem when there are too much pods
+  # pod 'ChildPod', :path => 'DevPods/ChildPod' # This is the problem when there are too much pods
   pod 'MainPod', :path => 'DevPods/MainPod'
 end
 ```
-```
+```ruby
 # ./DevPods/MainPod/Podfile
 platform :ios, '13.0'
 
@@ -51,7 +51,7 @@ target 'MainPod' do
   pod 'ChildPod', :path => '../ChildPod'
 end
 ```
-```
+```ruby
 # ./DevPods/ChildPod/Podfile
 platform :ios, '13.0'
 
